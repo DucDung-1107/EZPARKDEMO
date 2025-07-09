@@ -33,3 +33,427 @@
         </div>
         <button id="mobile-menu-toggle" aria-label="Toggle mobile menu"><i class="fa-solid fa-bars"></i></button>
     </header>
+
+    <main>
+        <!-- Trang Đặt Chỗ -->
+        <section id="booking-page" class="page active">
+            <div id="booking-form-container">
+                <h2>Tìm và Đặt Chỗ Đỗ Xe</h2>
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label for="location"><i class="fa-solid fa-location-dot"></i> Địa điểm</label>
+                        <input type="text" id="location" value="Hồ Gươm, Hà Nội" placeholder="Nhập địa điểm bạn muốn đỗ xe">
+                    </div>
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="date"><i class="fa-solid fa-calendar-day"></i> Ngày đặt</label>
+                            <input type="date" id="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="time"><i class="fa-solid fa-clock"></i> Thời gian</label>
+                            <input type="time" id="time">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-car-side"></i> Loại hình đặt chỗ</label>
+                        <div class="booking-options">
+                            <button type="button" class="option-btn active" data-option="hourly">Theo giờ</button>
+                            <button type="button" class="option-btn" data-option="overnight">Qua đêm</button>
+                            <button type="button" class="option-btn" data-option="monthly">Theo tháng</button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Tìm chỗ đỗ xe</button>
+                </form>
+            </div>
+            
+            <div class="additional-booking-info">
+                <div class="recent-bookings">
+                    <h3><i class="fa-solid fa-clock-rotate-left"></i> Đặt Chỗ Gần Đây</h3>
+                    <div class="recent-list">
+                        <div class="recent-item">
+                            <div class="recent-item-info">
+                                <h4>Bãi xe Vincom Bà Triệu</h4>
+                                <p>07/05/2025 - 14:30</p>
+                            </div>
+                            <button class="btn btn-secondary">Đặt lại</button>
+                        </div>
+                        <div class="recent-item">
+                            <div class="recent-item-info">
+                                <h4>Hầm xe nhà chị Lan (Q.3)</h4>
+                                <p>05/05/2025 - 09:00</p>
+                            </div>
+                            <button class="btn btn-secondary">Đặt lại</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="nearby-recommendations">
+                    <h3><i class="fa-solid fa-map-location-dot"></i> Gợi Ý Gần Bạn</h3>
+                    <div class="recommendation-list">
+                        <div class="recommendation-card">
+                            <div class="rec-info">
+                                <h4>Bãi xe anh Bảy (Q.1)</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <span>(122)</span>
+                                </div>
+                                <p class="details">
+                                    <span><i class="fa-solid fa-route"></i> 150m</span>
+                                    <span><i class="fa-solid fa-car"></i> Còn 2 chỗ</span>
+                                </p>
+                                <p class="price">15.000đ/giờ</p>
+                            </div>
+                            <button class="btn btn-primary">Đặt ngay</button>
+                        </div>
+                        <div class="recommendation-card">
+                            <div class="rec-info">
+                                <h4>Hầm xe Royal City</h4>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                    <span>(510)</span>
+                                </div>
+                                <p class="details">
+                                    <span><i class="fa-solid fa-route"></i> 3km</span>
+                                    <span><i class="fa-solid fa-car"></i> Còn nhiều</span>
+                                </p>
+                                <p class="price">10.000đ/giờ</p>
+                            </div>
+                            <button class="btn btn-primary">Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="booking-results-container" class="hidden"></div>
+        </section>
+
+        <!-- Trang Chia Sẻ -->
+        <section id="share-page" class="page">
+            <h2>Chia Sẻ Bãi Đỗ & Quản lý</h2>
+            <div class="share-container">
+                <div class="share-tabs">
+                    <button class="tab-link active" data-tab="nearby-lots"><i class="fa-solid fa-map-location-dot"></i> Bãi đỗ gần bạn</button>
+                    <button class="tab-link" data-tab="my-lots"><i class="fa-solid fa-car-garage"></i> Quản lý bãi đỗ</button>
+                    <button class="tab-link" data-tab="register-lot"><i class="fa-solid fa-plus-circle"></i> Đăng ký mới</button>
+                </div>
+                <div id="nearby-lots" class="tab-content active">
+                    <div class="result-card">
+                        <div class="result-info">
+                            <h4>Bãi xe anh Bảy (Q.1)</h4>
+                            <p>150m - Còn 2 chỗ</p>
+                        </div>
+                        <div class="result-price">
+                            <span class="price">15.000đ</span>/giờ 
+                            <button class="btn btn-primary payment-btn">Đặt ngay</button>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-info">
+                            <h4>Hầm xe nhà chị Lan (Q.3)</h4>
+                            <p>400m - Còn 1 chỗ</p>
+                        </div>
+                        <div class="result-price">
+                            <span class="price">12.000đ</span>/giờ 
+                            <button class="btn btn-primary payment-btn">Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="my-lots" class="tab-content">
+                    <div class="my-lot-card">
+                        <div class="my-lot-info">
+                            <h4>Bãi nhà tôi - 123 Lê Lợi</h4>
+                            <span class="status active"><i class="fa-solid fa-circle"></i> Đang hoạt động</span>
+                        </div>
+                        <div class="my-lot-stats">
+                            <div><p>Giá</p><span>20.000đ/giờ</span></div>
+                            <div><p>Doanh thu tháng</p><span class="revenue">+ 1.250.000đ</span></div>
+                        </div>
+                    </div>
+                    <div class="my-lot-card">
+                        <div class="my-lot-info">
+                            <h4>Sân sau - 456 Nguyễn Huệ</h4>
+                            <span class="status inactive"><i class="fa-solid fa-circle"></i> Tạm dừng</span>
+                        </div>
+                        <div class="my-lot-stats">
+                            <div><p>Giá</p><span>18.000đ/giờ</span></div>
+                            <div><p>Doanh thu tháng</p><span class="revenue">+ 860.000đ</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="register-lot" class="tab-content">
+                    <form class="share-form">
+                        <div class="form-group">
+                            <label for="share-address">Địa chỉ bãi đỗ</label>
+                            <input type="text" id="share-address" placeholder="Nhập địa chỉ bãi đỗ của bạn">
+                        </div>
+                        <div class="form-group">
+                            <label for="share-description">Mô tả chi tiết</label>
+                            <textarea id="share-description" rows="4" placeholder="Mô tả về bãi đỗ, tiện ích, giờ hoạt động..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Gửi Đăng Ký</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Trang EZBOT -->
+        <section id="ezbot-page" class="page">
+            <div id="ezbot-chat-container">
+                <div class="chat-header">
+                    <i class="fa-solid fa-robot"></i>
+                    <h3>EZBOT Assistant</h3>
+                </div>
+                <div class="chat-body" id="ezbot-chat-body">
+                    <div class="chat-message bot">
+                        <p>Xin chào! Tôi là EZBOT. Hãy hỏi tôi về việc tìm chỗ đỗ xe hoặc các vấn đề pháp lý liên quan nhé!</p>
+                    </div>
+                </div>
+                <div class="chat-footer">
+                    <input type="text" id="ezbot-chat-input" placeholder="Nhập câu hỏi...">
+                    <button id="ezbot-send-btn" aria-label="Gửi tin nhắn"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trang Cộng Đồng -->
+        <section id="community-page" class="page">
+            <h2>Cộng Đồng EZPark</h2>
+            <div class="community-feed">
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div class="post-info">
+                            <span class="post-author">An Nguyên</span>
+                            <span class="post-time">2 giờ trước</span>
+                        </div>
+                    </div>
+                    <div class="post-body">
+                        <p>Bãi đỗ xe ở Vincom Bà Triệu, rộng rãi và sạch sẽ. Highly recommend!</p>
+                        <img src="post1.jpg" alt="Hình ảnh bãi đỗ xe Vincom Bà Triệu">
+                    </div>
+                    <div class="post-footer">
+                        <div class="post-stats">
+                            <span><i class="fa-solid fa-thumbs-up"></i> <span class="like-count">152</span></span>
+                            <span>18 bình luận</span>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn like-btn"><i class="fa-regular fa-thumbs-up"></i> Thích</button>
+                            <button class="action-btn"><i class="fa-regular fa-comment"></i> Bình luận</button>
+                            <button class="action-btn"><i class="fa-solid fa-share"></i> Chia sẻ</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-avatar"><i class="fa-solid fa-car-on"></i></div>
+                        <div class="post-info">
+                            <span class="post-author">Tài xế Pro</span>
+                            <span class="post-time">5 giờ trước</span>
+                        </div>
+                    </div>
+                    <div class="post-body">
+                        <p>Đỗ xe song song chuẩn không cần chỉnh.</p>
+                        <img src="post2.jpg" alt="Hình ảnh kỹ thuật đỗ xe song song">
+                    </div>
+                    <div class="post-footer">
+                        <div class="post-stats">
+                            <span><i class="fa-solid fa-thumbs-up"></i> <span class="like-count">230</span></span>
+                            <span>25 bình luận</span>
+                        </div>
+                        <div class="post-actions">
+                            <button class="action-btn like-btn"><i class="fa-regular fa-thumbs-up"></i> Thích</button>
+                            <button class="action-btn"><i class="fa-regular fa-comment"></i> Bình luận</button>
+                            <button class="action-btn"><i class="fa-solid fa-share"></i> Chia sẻ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trang EZGame -->
+        <section id="game-page" class="page">
+             <h2>Không Gian Giải Trí EZGame</h2>
+             <div class="game-area">
+                <div class="game-main-content">
+                    <div class="game-container">
+                        <div class="game-card">
+                            <h3>Nhiệm Vụ Hàng Ngày</h3>
+                            <p>Hoàn thành nhiệm vụ để nhận thưởng EZPoints!</p>
+                            <ul class="task-list">
+                                <li>
+                                    <div class="task-info"><i class="fa-solid fa-square-parking"></i><span>Đỗ xe 3 lần trong ngày</span></div>
+                                    <span class="task-progress">0/3</span>
+                                </li>
+                                <li>
+                                    <div class="task-info"><i class="fa-solid fa-share-nodes"></i><span>Chia sẻ 1 bài viết cộng đồng</span></div>
+                                    <span class="task-progress">0/1</span>
+                                </li>
+                                <li class="completed">
+                                    <div class="task-info"><i class="fa-solid fa-robot"></i><span>Sử dụng EZBOT 1 lần</span></div>
+                                    <span class="task-progress"><i class="fa-solid fa-check"></i></span>
+                                </li>
+                            </ul>
+                            <button class="btn btn-secondary" disabled>Đã nhận thưởng</button>
+                        </div>
+                         
+                        <div class="game-card">
+                            <h3>EZFarm - Tưới Cây Nhận Thưởng</h3>
+                            <p>Mỗi lần tưới cây sẽ nhận được EZPoints. Cây lớn nhanh, thưởng càng to!</p>
+                            <div class="plant-game">
+                                <i class="fa-solid fa-seedling"></i>
+                                <span class="plant-level">Cấp độ: 1/10</span>
+                            </div>
+                            <button class="btn btn-primary" id="water-plant-btn"><i class="fa-solid fa-droplet"></i> Tưới cây (+10 EZP)</button>
+                        </div>
+                        
+                        <div class="game-card">
+                            <h3>Vòng Quay May Mắn</h3>
+                            <p>Sử dụng 50 EZPoints để quay và nhận những phần thưởng giá trị!</p>
+                            <div class="lucky-wheel-container">
+                                <div class="wheel-pointer"></div>
+                                <div id="lucky-wheel">
+                                    <div class="wheel-segment" style="--i:1;--clr:#4CAF50;"><span>Miễn phí</span></div>
+                                    <div class="wheel-segment" style="--i:2;--clr:#8BC34A;"><span>+100 EZP</span></div>
+                                    <div class="wheel-segment" style="--i:3;--clr:#4CAF50;"><span>Giảm 50%</span></div>
+                                    <div class="wheel-segment" style="--i:4;--clr:#8BC34A;"><span>Thêm lượt</span></div>
+                                    <div class="wheel-segment" style="--i:5;--clr:#4CAF50;"><span>Giảm 25%</span></div>
+                                    <div class="wheel-segment" style="--i:6;--clr:#8BC34A;"><span>+50 EZP</span></div>
+                                    <div class="wheel-segment" style="--i:7;--clr:#FFEB3B;"><span>JACKPOT</span></div>
+                                    <div class="wheel-segment" style="--i:8;--clr:#8BC34A;"><span>Rất tiếc</span></div>
+                                </div>
+                                <button id="spin-btn" class="btn btn-primary">Quay</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <aside class="game-sidebar">
+                    <div class="leaderboard-container">
+                        <h3><i class="fa-solid fa-trophy"></i> Bảng Xếp Hạng Tuần</h3>
+                        <ol class="leaderboard-list">
+                            <li><span class="rank gold"><i class="fa-solid fa-medal"></i></span><span class="name">Nguyễn Văn A</span><span class="points">1,500 EZP</span></li>
+                            <li><span class="rank silver"><i class="fa-solid fa-medal"></i></span><span class="name">Trần Thị B</span><span class="points">1,250 EZP</span></li>
+                            <li><span class="rank bronze"><i class="fa-solid fa-medal"></i></span><span class="name">Lê Văn C</span><span class="points">980 EZP</span></li>
+                            <li><span class="rank">4</span><span class="name">Phạm Dũng</span><span class="points">800 EZP</span></li>
+                            <li><span class="rank">5</span><span class="name">Tài Xế Pro</span><span class="points">750 EZP</span></li>
+                        </ol>
+                    </div>
+                </aside>
+             </div>
+        </section>
+
+        <!-- Trang Ví -->
+        <section id="wallet-page" class="page">
+            <h2>Ví EZ Của Bạn</h2>
+            <div class="wallet-container">
+                <div class="wallet-balance main-balance">
+                    <p>Số dư tài khoản</p>
+                    <h3>5.250.000 VNĐ</h3>
+                </div>
+                <div class="wallet-balance">
+                    <p>Số dư EZPoints</p>
+                    <h3><i class="fa-solid fa-star"></i> 1,250 EZP</h3>
+                </div>
+                <div class="wallet-balance solana-balance">
+                    <p>Số dư Solana</p>
+                    <h3><i class="fa-brands fa-solana"></i> 2.5 SOL</h3>
+                    <button id="connect-phantom-btn" class="btn btn-primary"><i class="fa-solid fa-wallet"></i> Nạp/Rút SOL</button>
+                </div>
+            </div>
+            <div class="wallet-details">
+                <div class="transaction-history">
+                    <h4><i class="fa-solid fa-list-ul"></i> Lịch sử giao dịch</h4>
+                    <ul>
+                        <li>
+                            <div class="trans-icon down"><i class="fa-solid fa-arrow-down"></i></div>
+                            <div class="trans-info">
+                                <p>Nạp tiền từ MoMo</p>
+                                <small>08/05/2025</small>
+                            </div>
+                            <span class="amount-plus">+500.000đ</span>
+                        </li>
+                        <li>
+                            <div class="trans-icon up"><i class="fa-solid fa-square-parking"></i></div>
+                            <div class="trans-info">
+                                <p>Đặt chỗ Vincom Bà Triệu</p>
+                                <small>07/05/2025</small>
+                            </div>
+                            <span class="amount-minus">-30.000đ</span>
+                        </li>
+                        <li>
+                            <div class="trans-icon down"><i class="fa-solid fa-gamepad"></i></div>
+                            <div class="trans-info">
+                                <p>Thưởng game Vòng Quay</p>
+                                <small>07/05/2025</small>
+                            </div>
+                            <span class="amount-plus">+100 EZP</span>
+                        </li>
+                        <li>
+                            <div class="trans-icon down"><i class="fa-solid fa-handshake-angle"></i></div>
+                            <div class="trans-info">
+                                <p>Nhận tiền từ chia sẻ bãi</p>
+                                <small>06/05/2025</small>
+                            </div>
+                            <span class="amount-plus">+80.000đ</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="voucher-list">
+                    <h4><i class="fa-solid fa-ticket"></i> Voucher của bạn</h4>
+                    <div class="voucher-card">
+                        <div class="voucher-icon"><i class="fa-solid fa-percent"></i></div>
+                        <div class="voucher-info">
+                            <h5>Giảm giá 50% đặt chỗ</h5>
+                            <small>Hết hạn: 30/06/2025</small>
+                        </div>
+                        <button class="btn btn-secondary">Dùng ngay</button>
+                    </div>
+                    <div class="voucher-card">
+                        <div class="voucher-icon"><i class="fa-solid fa-car"></i></div>
+                        <div class="voucher-info">
+                            <h5>Miễn phí 1 lượt đỗ xe</h5>
+                            <small>Hết hạn: 15/07/2025</small>
+                        </div>
+                        <button class="btn btn-secondary">Dùng ngay</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Các Modal -->
+    <div id="auth-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <button class="close-modal-btn" aria-label="Đóng cửa sổ">×</button>
+            <h3 id="modal-title">Đăng nhập</h3>
+            <form id="modal-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="Nhập email của bạn">
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" required placeholder="Nhập mật khẩu của bạn">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Xác nhận</button>
+            </form>
+        </div>
+    </div>
+    <div id="qr-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
+        <div class="modal-content">
+            <button class="close-modal-btn" aria-label="Đóng cửa sổ">×</button>
+            <h3 class="modal-title-qr" id="qr-modal-title">Đặt chỗ thành công!</h3>
+            <p class="qr-subtitle">Hãy đưa mã QR tới bãi đỗ nhé</p>
+            <img id="qr-code-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=EZPark-Booking-ID-12345" alt="Mã QR đặt chỗ">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
