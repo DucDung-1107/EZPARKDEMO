@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function getBotResponse(userInput) {
         const lowerInput = userInput.toLowerCase();
-        let response = "Xin lỗi, tôi chưa hiểu yêu cầu của bạn. Bạn có thể hỏi về việc tìm chỗ đỗ xe hoặc các vấn đề pháp lý liên quan nhé!";
+        let response = "Tuyệt vời! Dưới đây là một vài gợi ý:<ul><li><b>Bãi đỗ xe cao tầng Trần Nhật Duật (20K)</b>: 10-15 phút đi bộ.</li><li><b>Bãi đỗ xe trên đường Trần Quang Khải (25-30k)</b>: 5 phút đi bộ.</li><li><b>Bãi đỗ xe A15 (Shared, 15k)</b>: 10 phút đi bộ, cần liên hệ trước 30 phút.</li></ul>";
 
         if (lowerInput.includes("đỗ ở đây có được không")) {
             response = "Đây là biển cấm đỗ xe ngày chẵn, dựa vào thông tin ngày hôm nay 7/5/2025 thì bạn <b>không được đỗ xe ở đây</b>. Muốn tôi tìm chỗ đỗ xe cho bạn không?";
