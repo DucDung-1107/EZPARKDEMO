@@ -8,11 +8,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- LOGIC CHUYỂN TRANG (SPA) ---
     function showPage(pageId) {
-        allPages.forEach(page => page.classList.remove('active'));
+        allPages.forEach(page => {
+            page.classList.remove('active');
+            // Reset any input fields in the page
+            const inputs = page.querySelectorAll('input, textarea');
+            inputs.forEach(input => input.value = '');
+        });
         navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${pageId}`));
         const targetPage = document.getElementById(pageId);
         if (targetPage) targetPage.classList.add('active');
         window.scrollTo(0, 0); // Cuộn lên đầu trang khi chuyển trang
+
+        // Close all modals when switching pages
+        allModals.forEach(modal => modal.classList.add('hidden'));
     }
 
     navLinks.forEach(link => {
@@ -93,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
             showModal('qr-modal');
         }
     });
-
 
     // --- LOGIC TRANG CHIA SẺ (SHARE) ---
     const tabContainer = document.querySelector('.share-tabs');
